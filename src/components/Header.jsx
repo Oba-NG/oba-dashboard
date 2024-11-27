@@ -1,7 +1,3 @@
 export default function Header() {
-  return <header style={style}>I'm the header</header>;
+  return <header className="p-5">I'm the header</header>;
 }
-
-const style = {
-  padding: "1rem",
-};
