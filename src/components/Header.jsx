@@ -1,3 +1,4 @@
+import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
 import logo from "../assets/oba-logo.png";
 
 export default function Header() {
@@ -14,15 +15,31 @@ export default function Header() {
         </div>
 
         {/* menu */}
-        <div className="hidden md:flex gap-10 text-[--grey]">
+        <div className="hidden md:flex items-center gap-10 text-[--grey]">
           <a href="/">Home</a>
           <a href="/" className="active">
             Market
           </a>
           <a href="/">Account</a>
-          <a href="/">Search</a>
-          <a href="/">Mic</a>
-          <a href="/">Cart</a>
+          {/* Would probably need to implement algolia search here */}
+          <a
+            href="/"
+            className="flex items-center gap-5 border border-[--grey] rounded-md p-2"
+          >
+            <SlidersVertical size={16} />
+            <input
+              type="text"
+              placeholder="Search Product"
+              className="bg-transparent text-xs"
+            />
+            <Search size={16} />
+          </a>
+          <a href="/" className="text-[--oba-green]">
+            <Mic />
+          </a>
+          <a href="/" className="flex items-center gap-1 text-[--oba-green]">
+            <ShoppingCart /> Cart
+          </a>
         </div>
 
         {/* user */}
