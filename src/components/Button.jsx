@@ -19,13 +19,16 @@ const btn = {
   secondary: "bg-[--bg-color] text-black border border-black",
   tertiary: "bg-[--bg-color] text-[--oba-green] border border-[--oba-green]",
   disabled: "bg-[--grey] text-white border border-[--grey]",
+  cta: "bg-white border border-white text-[--oba-green]",
 };
 
 export default function Button({ children, className, type }) {
   return (
     <button
       className={`${
-        type === "disabled"
+        type === "cta"
+          ? btn.cta
+          : type === "disabled"
           ? btn.disabled
           : type === "secondary"
           ? btn.secondary

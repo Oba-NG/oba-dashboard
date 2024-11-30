@@ -22,6 +22,11 @@ export default function Home() {
 
         {/* Random button */}
         <Button>All</Button>
+
+        {/* CTA button */}
+        <Button type="cta" className={"px-10 text-sm shadow-md"}>
+          Buy Now
+        </Button>
       </div>
     </main>
   );
