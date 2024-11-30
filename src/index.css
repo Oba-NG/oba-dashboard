@@ -1,5 +1,7 @@
 :root {
   --grey: #807b7b;
+  --oba-green: #2d4c2e;
+  --bg-color: #fffff0;
 }
 
 @tailwind base;
@@ -7,5 +9,10 @@
 @tailwind utilities;
 
 body {
-  background-color: #fffff0;
+  background-color: var(--bg-color);
+}
+
+/* navigation */
+.active {
+  @apply text-black font-medium;
 }
