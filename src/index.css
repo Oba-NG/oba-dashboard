@@ -1,3 +1,11 @@
+:root {
+  --grey: #807b7b;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #fffff0;
+}
