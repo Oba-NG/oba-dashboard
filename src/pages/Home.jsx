@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="p-5 max-w-[1200px] mx-auto">
       {/* BUTTONS */}
-      <div className="flex gap-5 justify-center">
+      <div className="flex flex-wrap gap-5 justify-center">
         {/* Shopping cart button */}
         <Button>
           <ShoppingCart size={16} /> Add to cart
