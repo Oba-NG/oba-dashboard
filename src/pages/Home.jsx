@@ -1,33 +1,40 @@
-import { ShoppingCart } from "lucide-react";
-import Button from "../components/Button";
+import React, { useState } from "react";
+import WelcomeScreen from "../pages/auth/WelcomeScreen";
+import EmailVerification from "../pages/auth/EmailVerification";
+import LoginScreen from "../pages/auth/LoginScreen";
+import CreateAccountStep1 from "../pages/auth/CreateAccountStep1";
+import CreateAccountStep2 from "../pages/auth/CreateAccountStep2";
 
 export default function Home() {
+  const [currentStep, setCurrentStep] = useState("WelcomeScreen"); // Tracks the current step
+
+  // Function to handle navigation between steps
+  const handleNavigate = (step) => {
+    setCurrentStep(step);
+  };
+
   return (
-    <main className="p-5 max-w-[1200px] mx-auto">
-      {/* BUTTONS */}
-      <div className="flex flex-wrap gap-5 justify-center">
-        {/* Shopping cart button */}
-        <Button>
-          <ShoppingCart size={16} /> Add to cart
-        </Button>
+    <main className="p-5 max-w-[1200px] mx-auto font-Monts md:flex md:justify-center">
+      {/* Render screens based on the currentStep */}
+      {currentStep === "WelcomeScreen" && (
+        <WelcomeScreen navigateTo={() => handleNavigate("EmailVerification")} />
+      )}
 
-        {/* Pepper button */}
-        <Button>Pepper</Button>
+      {currentStep === "EmailVerification" && (
+        <EmailVerification navigateTo={() => handleNavigate("LoginScreen")} />
+      )}
 
-        {/* Meat & Poultry button */}
-        <Button type="secondary">Meat & Poultry</Button>
+      {currentStep === "LoginScreen" && (
+        <LoginScreen navigateTo={() => handleNavigate("CreateAccountStep1")} />
+      )}
 
-        {/* Disabled button */}
-        <Button type="disabled">Disabled</Button>
+      {currentStep === "CreateAccountStep1" && (
+        <CreateAccountStep1
+          navigateTo={() => handleNavigate("CreateAccountStep2")}
+        />
+      )}
 
-        {/* Random button */}
-        <Button>All</Button>
-
-        {/* CTA button */}
-        <Button type="cta" className={"px-10 text-sm shadow-md"}>
-          Buy Now
-        </Button>
-      </div>
+      {currentStep === "CreateAccountStep2" && <CreateAccountStep2 />}
     </main>
   );
 }
