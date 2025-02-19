@@ -14,6 +14,8 @@
  * height: py-2, py-1
  */
 
+import { HeartIcon } from "lucide-react";
+
 const btn = {
   primary: "bg-[--oba-green] text-white border border-[--oba-green]",
   secondary: "bg-[--bg-color] text-black border border-black",
@@ -39,6 +41,19 @@ export default function Button({ children, className, type }) {
      rounded-md px-2 py-0.5 flex items-center justify-center gap-2 ${className}`}
     >
       {children}
+    </button>
+  );
+}
+
+export function FavouriteToggle({ isFavourite, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center justify-center gap-2 rounded-md px-2 py-0.5 ${
+        isFavourite ? "bg-primary" : "bg-tertiary"
+      } `}
+    >
+      <HeartIcon fill={isFavourite ? "#f00" : ""} />
     </button>
   );
 }
