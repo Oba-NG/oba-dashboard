@@ -4,8 +4,6 @@ import EmailVerification from "../pages/auth/EmailVerification";
 import LoginScreen from "../pages/auth/LoginScreen";
 import CreateAccountStep1 from "../pages/auth/CreateAccountStep1";
 import CreateAccountStep2 from "../pages/auth/CreateAccountStep2";
-import { FavouriteToggle } from "../components/Button";
-import Vite from "./Vite";
 
 export default function Home() {
   const [currentStep, setCurrentStep] = useState("WelcomeScreen"); // Tracks the current step
@@ -17,9 +15,6 @@ export default function Home() {
 
   return (
     <main className="p-5 max-w-[1200px] mx-auto font-Monts md:flex md:justify-center">
-      {/* Oba Dashboard Components */}
-      <Vite />
-
       {/* Render screens based on the currentStep */}
       {currentStep === "WelcomeScreen" && (
         <WelcomeScreen navigateTo={() => handleNavigate("EmailVerification")} />

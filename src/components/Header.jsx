@@ -1,5 +1,6 @@
 import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
 import logo from "../assets/oba-logo.png";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const cartCount = 1;
@@ -7,9 +8,9 @@ export default function Header() {
     <header className="font-Monts bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">
       <div className="px-5 py-3 flex gap-5 justify-between items-center max-w-[1200px] mx-auto">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <Link to={"/"} className="flex items-center gap-2">
           <img src={logo} alt="Oba Logo" className="w-3/4 object-contain" />
-        </div>
+        </Link>
 
         {/* Menu */}
         <nav className="hidden md:flex items-center gap-8 text-[#666666]">
