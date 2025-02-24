@@ -14,7 +14,7 @@
  * height: py-2, py-1
  */
 
-import { HeartIcon } from "lucide-react";
+import { Eye, EyeOff, HeartIcon } from "lucide-react";
 
 const btn = {
   primary: "bg-[--oba-green] text-white border border-[--oba-green]",
@@ -54,6 +54,18 @@ export function FavouriteToggle({ isFavourite, onClick }) {
       } `}
     >
       <HeartIcon fill={isFavourite ? "#f00" : ""} />
+    </button>
+  );
+}
+
+export function EyeToggle({ isVisible, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="text-gray-500 hover:text-black"
+    >
+      {isVisible ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
     </button>
   );
 }

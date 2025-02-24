@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import icon from "../../assets/icon.png";
+import { EyeToggle } from "../../components/Buttons";
 export default function LoginScreen({ navigateTo }) {
   const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
 
@@ -39,17 +40,10 @@ export default function LoginScreen({ navigateTo }) {
           className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
         />
         {/* Toggle Password Visibility Icon */}
-        <button
-          type="button"
+        <EyeToggle
+          isVisible={passwordVisible}
           onClick={togglePasswordVisibility}
-          className="absolute right-4 top-3 text-gray-500 hover:text-black"
-        >
-          {passwordVisible ? (
-            <Eye className="w-5 h-5" />
-          ) : (
-            <EyeOff className="w-5 h-5" />
-          )}
-        </button>
+        />
       </div>
 
       {/* Continue Button */}
