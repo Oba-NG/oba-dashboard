@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Productcard from "../components/Productcard";
 import { EyeToggle, FavouriteToggle } from "../components/Buttons";
 
 export default function Vite() {
@@ -23,6 +23,9 @@ export default function Vite() {
           isVisible={isVisible}
           onClick={() => setIsVisible(!isVisible)}
         />
+      </section>
+      <section>
+        <Productcard />
       </section>
     </main>
   );
