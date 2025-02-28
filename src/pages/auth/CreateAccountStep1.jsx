@@ -1,11 +1,24 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
 import icon from "../../assets/icon.png";
+
 export default function CreateAccountStep1({ navigateTo }) {
-  const [passwordVisible, setPasswordVisible] = useState(false); // State to toggle password visibility
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
+  };
+
+  const onSubmit = (data) => {
+    console.log("Account Data:", data);
+    navigateTo("NextStep");
   };
 
   return (
@@ -20,7 +33,7 @@ export default function CreateAccountStep1({ navigateTo }) {
         Create your account
       </h1>
       <p className="text-sm text-gray-600 mb-6">
-        Lets get started by creating a strong password you can remember
+        Let's get started by creating a strong password you can remember
       </p>
 
       {/* Email (display only) */}
@@ -31,57 +44,78 @@ export default function CreateAccountStep1({ navigateTo }) {
         </button>
       </div>
 
-      {/* Password Field input password*/}
-      <div className="relative w-full mb-6">
-        <input
-          type={passwordVisible ? "text" : "password"}
-          placeholder="Password"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
-        />
-        {/* Toggle Password Visibility Icon */}
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className="absolute right-4 top-3 text-gray-500 hover:text-black"
-        >
-          {passwordVisible ? (
-            <Eye className="w-5 h-5" />
-          ) : (
-            <EyeOff className="w-5 h-5" />
+      {/* Form */}
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+        {/* Password Field */}
+        <div className="relative w-full mb-6">
+          <input
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Password"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute right-4 top-3 text-gray-500 hover:text-black"
+          >
+            {passwordVisible ? (
+              <Eye className="w-5 h-5" />
+            ) : (
+              <EyeOff className="w-5 h-5" />
+            )}
+          </button>
+          {errors.password && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.password.message}
+            </p>
           )}
-        </button>
-      </div>
+        </div>
 
-      {/* Password Field confirm password */}
-      <div className="relative w-full mb-6">
-        <input
-          type={passwordVisible ? "text" : "password"}
-          placeholder="Confirm Password"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
-        />
-        {/* Toggle Password Visibility Icon */}
-        <button
-          type="button"
-          onClick={togglePasswordVisibility}
-          className="absolute right-4 top-3 text-gray-500 hover:text-black"
-        >
-          {passwordVisible ? (
-            <Eye className="w-5 h-5" />
-          ) : (
-            <EyeOff className="w-5 h-5" />
+        {/* Confirm Password Field */}
+        <div className="relative w-full mb-6">
+          <input
+            {...register("confirmPassword", {
+              required: "Confirm Password is required",
+              validate: (value) =>
+                value === watch("password") || "Passwords do not match",
+            })}
+            type={passwordVisible ? "text" : "password"}
+            placeholder="Confirm Password"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisibility}
+            className="absolute right-4 top-3 text-gray-500 hover:text-black"
+          >
+            {passwordVisible ? (
+              <Eye className="w-5 h-5" />
+            ) : (
+              <EyeOff className="w-5 h-5" />
+            )}
+          </button>
+          {errors.confirmPassword && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors.confirmPassword.message}
+            </p>
           )}
+        </div>
+
+        {/* Continue Button */}
+        <button
+          type="submit"
+          className="w-full bg-[#A6C48A] text-white py-3 rounded-lg font-semibold hover:bg-green-500 transition"
+        >
+          Continue
         </button>
-      </div>
-
-      {/* Continue Button */}
-      <button
-        onClick={navigateTo}
-        className="w-full bg-[#A6C48A] text-white py-3 rounded-lg font-semibold hover:bg-green-500 transition"
-      >
-        Continue
-      </button>
-
-      {/* Forgot Password */}
+      </form>
 
       {/* Support Info */}
       <p className="text-xs text-gray-500 mt-8">
