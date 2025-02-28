@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import icon from "../../assets/icon.png";
 import { EyeToggle } from "../../components/Buttons";
 export default function LoginScreen({ navigateTo }) {
