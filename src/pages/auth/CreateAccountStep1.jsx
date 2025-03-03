@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Eye, EyeOff } from "lucide-react";
-import icon from "../../assets/icon.png";
+import icon from "@/assets/icon.png";
 
 export default function CreateAccountStep1({ navigateTo }) {
   const {

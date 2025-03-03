@@ -1,6 +1,5 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import icon from "../../assets/icon.png";
+import icon from "@/assets/icon.png";
 
 export default function CreateAccountStep2({ navigateTo }) {
   const {

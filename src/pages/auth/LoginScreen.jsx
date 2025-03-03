@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import icon from "../../assets/icon.png";
-import { EyeToggle } from "../../components/Buttons";
+import icon from "@/assets/icon.png";
+import { EyeToggle } from "@/components/shared/buttons";
 
 export default function LoginScreen({ navigateTo }) {
   const {

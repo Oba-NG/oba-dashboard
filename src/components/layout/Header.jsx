@@ -1,5 +1,5 @@
 import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
-import logo from "../assets/oba-logo.png";
+import logo from "@/assets/oba-logo.png";
 import { Link } from "react-router-dom";
 
 export default function Header() {

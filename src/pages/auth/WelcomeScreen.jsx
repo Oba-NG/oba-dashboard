@@ -1,8 +1,7 @@
-import React from "react";
 import { useForm } from "react-hook-form";
-import icon from "../../assets/icon.png";
-import googlesvg from "../../assets/google.svg";
-import facebook from "../../assets/facebook.svg";
+import icon from "@/assets/icon.png";
+import googlesvg from "@/assets/google.svg";
+import facebook from "@/assets/facebook.svg";
 function WelcomeScreen({ navigateTo }) {
   const { register, handleSubmit } = useForm();
 

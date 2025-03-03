@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
-import icon from "../../assets/icon.png";
+import icon from "@/assets/icon.png";
 
 export default function EmailVerification({ navigateTo }) {
   const {
