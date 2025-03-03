@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Monts: ["Montserrat", "sans-serif"]
-     }
+        // Monts: ["Montserrat", "sans-serif"]
+      },
     },
   },
   plugins: [],
