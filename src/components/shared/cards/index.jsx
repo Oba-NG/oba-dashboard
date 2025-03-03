@@ -1,7 +1,12 @@
 import React from "react";
 import { ShoppingCart } from "lucide-react";
-import Button from "./Buttons";
-const Productcard = () => {
+import Button from "../buttons";
+
+/**
+ * Product Card Component
+ * @returns {JSX.Element}
+ */
+export function ProductCard() {
   return (
     <div className="w-fit md:w-1/5 bg-[#FDFDFD] hover:shadow-lg p-4 flex flex-col gap-2 rounded-md">
       {/* product name */}
@@ -19,6 +24,4 @@ const Productcard = () => {
       </Button>
     </div>
   );
-};
-
-export default Productcard;
+}

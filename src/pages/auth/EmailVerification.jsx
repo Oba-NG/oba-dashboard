@@ -1,28 +1,44 @@
-import React, { useState } from "react";
-import icon from "../../assets/icon.png";
+import { useRef } from "react";
+import { useForm, Controller } from "react-hook-form";
+import icon from "@/assets/icon.png";
+
 export default function EmailVerification({ navigateTo }) {
-  const [code, setCode] = useState(["", "", "", ""]); // State to hold the 4-digit code
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      code: ["", "", "", ""],
+    },
+  });
 
-  const handleChange = (index, value) => {
-    if (!/^\d*$/.test(value)) return; // Only allow numeric input
-    const newCode = [...code];
-    newCode[index] = value;
-    setCode(newCode);
+  const inputsRef = useRef([]);
 
-    // Automatically focus the next input if a digit is entered
-    if (value && index < 3) {
-      const nextInput = document.getElementById(`code-input-${index + 1}`);
-      if (nextInput) nextInput.focus();
+  const onSubmit = (data) => {
+    const verificationCode = data.code.join("");
+    if (verificationCode.length === 4) {
+      console.log("Verification code:", verificationCode);
+      navigateTo("Dashboard");
     }
   };
 
-  const handleSubmit = () => {
-    if (code.every((digit) => digit !== "")) {
-      // Validate that all inputs are filled
-      console.log("Verification code:", code.join("")); // Log the code
-      navigateTo(); // Move to the next step
-    } else {
-      alert("Please fill all the fields"); // Show an error if not all fields are filled
+  const handleChange = (e, index) => {
+    const value = e.target.value;
+    if (/^\d?$/.test(value)) {
+      setValue(`code[${index}]`, value);
+      if (value && index < inputsRef.current.length - 1) {
+        inputsRef.current[index + 1].focus();
+      }
+    }
+  };
+
+  const handlePaste = (e) => {
+    const pastedData = e.clipboardData.getData("text").trim();
+    if (/^\d{4}$/.test(pastedData)) {
+      pastedData.split("").forEach((num, i) => setValue(`code[${i}]`, num));
+      inputsRef.current[3].focus();
     }
   };
 
@@ -36,27 +52,46 @@ export default function EmailVerification({ navigateTo }) {
       </p>
 
       {/* Verification code inputs */}
-      <div className="flex gap-8 mb-5">
-        {code.map((digit, index) => (
-          <input
-            key={index}
-            id={`code-input-${index}`}
-            type="text"
-            maxLength={1}
-            value={digit}
-            onChange={(e) => handleChange(index, e.target.value)}
-            className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-        ))}
-      </div>
-
-      {/* Continue button */}
-      <button
-        onClick={handleSubmit}
-        className="bg-[#8f9b74] text-white py-2 px-8 rounded-lg hover:bg-green-500 transition w-full"
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-center w-full"
       >
-        Continue
-      </button>
+        <div className="flex gap-4 mb-5">
+          {[0, 1, 2, 3].map((index) => (
+            <Controller
+              key={index}
+              name={`code[${index}]`}
+              control={control}
+              rules={{
+                required: "Required",
+                pattern: { value: /^[0-9]$/, message: "Must be a number" },
+              }}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="text"
+                  maxLength={1}
+                  ref={(el) => (inputsRef.current[index] = el)}
+                  onChange={(e) => handleChange(e, index)}
+                  onPaste={index === 0 ? handlePaste : undefined}
+                  className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+              )}
+            />
+          ))}
+        </div>
+        {errors.code && (
+          <p className="text-red-500 text-xs">{errors.code.message}</p>
+        )}
+
+        {/* Continue button */}
+        <button
+          type="submit"
+          className="bg-[#8f9b74] text-white py-2 px-8 rounded-lg hover:bg-green-500 transition w-full"
+        >
+          Continue
+        </button>
+      </form>
 
       {/* Resend code message */}
       <p className="text-sm text-gray-600 mt-5 text-center">

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Productcard from "../components/Productcard";
-import { EyeToggle, FavouriteToggle } from "../components/Buttons";
+import { EyeToggle, FavouriteToggle } from "@/components/shared/buttons";
+import { ProductCard } from "@/components/shared/cards";
 
 export default function Vite() {
   const [isFavourite, setIsFavourite] = useState(false);
@@ -25,7 +25,7 @@ export default function Vite() {
         />
       </section>
       <section>
-        <Productcard />
+        <ProductCard />
       </section>
     </main>
   );

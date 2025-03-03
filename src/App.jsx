@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import Vite from "./pages/Vite";
+import Home from "@/pages/Home";
+import Vite from "@/pages/Vite";
+import Layout from "@/components/layout";
 
 export default function App() {
   return (

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import WelcomeScreen from "../pages/auth/WelcomeScreen";
-import EmailVerification from "../pages/auth/EmailVerification";
-import LoginScreen from "../pages/auth/LoginScreen";
-import CreateAccountStep1 from "../pages/auth/CreateAccountStep1";
-import CreateAccountStep2 from "../pages/auth/CreateAccountStep2";
+import WelcomeScreen from "@/pages/auth/WelcomeScreen";
+import EmailVerification from "@/pages/auth/EmailVerification";
+import LoginScreen from "@/pages/auth/LoginScreen";
+import CreateAccountStep1 from "@/pages/auth/CreateAccountStep1";
+import CreateAccountStep2 from "@/pages/auth/CreateAccountStep2";
 
 export default function Home() {
   const [currentStep, setCurrentStep] = useState("WelcomeScreen"); // Tracks the current step
