@@ -10,9 +10,10 @@ Hey there, welcome to Oba's codebase. We're glad to have you here. If you'd like
 
 ### First Time Contributor
 1. Clone the project.
-2. Run `npm i` to install the project's dependencies.
-3. Take some time to study the codebase and understand how the different files work with each other.
-4. Create a separate branch and start working on your contributions.
+2. Run `npm i` in the project's root directory to install the its dependencies.
+3. Run `npm run dev` to start the project on `localhost`. Click on the `localhost` link your terminal displays to view the dashboard in your browser.
+4. Take some time to study the codebase and understand how the different files work with each other.
+5. Create a separate branch by typing `git checkout -b branch-name` and start working on your contributions.
 
 ### Existing Contributor
 
