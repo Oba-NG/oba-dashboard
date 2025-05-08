@@ -3,7 +3,7 @@
 export default function Footer() {
 	return (
 		<footer>
-			<div className="grid grid-cols-3 px-2 gap-4 text-white bg-[#2D4C2E] py-4  ">
+			<div className="grid grid-cols-3 px-2 gap-4 text-white bg-[var(--oba-green)] py-4  ">
 				{/* border-black border-2 */}
 				<div>
 					<p className="font-bold pb-4">Get to Know Us</p>

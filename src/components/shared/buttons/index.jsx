@@ -24,11 +24,12 @@ const btn = {
   cta: "bg-white border border-white text-[--oba-green]",
 };
 
-export default function Button({ children, className, type }) {
+export default function Button({ children, className, mode, type }) {
   return (
     <button
+    type={type}
       className={`${
-        type === "cta"
+        mode === "cta"
           ? btn.cta
           : type === "disabled"
           ? btn.disabled
@@ -48,6 +49,7 @@ export default function Button({ children, className, type }) {
 export function FavouriteToggle({ isFavourite, onClick }) {
   return (
     <button
+    type="button"
       onClick={onClick}
       className={`flex items-center justify-center gap-2 rounded-md px-2 py-0.5 ${
         isFavourite ? "bg-primary" : "bg-tertiary"

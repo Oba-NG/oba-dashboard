@@ -1,40 +1,17 @@
-import React, { useState } from "react";
-import WelcomeScreen from "@/pages/auth/WelcomeScreen";
-import EmailVerification from "@/pages/auth/EmailVerification";
-import LoginScreen from "@/pages/auth/LoginScreen";
-import CreateAccountStep1 from "@/pages/auth/CreateAccountStep1";
-import CreateAccountStep2 from "@/pages/auth/CreateAccountStep2";
+import Button from "@/components/shared/buttons";
+import deliveryMan from "@/assets/images/delivery-man.png";
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState("WelcomeScreen"); // Tracks the current step
-
-  // Function to handle navigation between steps
-  const handleNavigate = (step) => {
-    setCurrentStep(step);
-  };
-
   return (
-    <main className="p-5 max-w-[1200px] mx-auto font-Monts md:flex md:justify-center">
-      {/* Render screens based on the currentStep */}
-      {currentStep === "WelcomeScreen" && (
-        <WelcomeScreen navigateTo={() => handleNavigate("EmailVerification")} />
-      )}
-
-      {currentStep === "EmailVerification" && (
-        <EmailVerification navigateTo={() => handleNavigate("LoginScreen")} />
-      )}
-
-      {currentStep === "LoginScreen" && (
-        <LoginScreen navigateTo={() => handleNavigate("CreateAccountStep1")} />
-      )}
-
-      {currentStep === "CreateAccountStep1" && (
-        <CreateAccountStep1
-          navigateTo={() => handleNavigate("CreateAccountStep2")}
-        />
-      )}
-
-      {currentStep === "CreateAccountStep2" && <CreateAccountStep2 />}
+    <main className="flex flex-col gap-5 p-5">
+      {/* Banner section */}
+      <section className="w-full max-w-[1200px] mx-auto p-5 bg-[var(--oba-green)] text-white rounded-2xl flex relative">
+        <div>
+        <h1 className="text-6xl font-medium">Oba Delivers Quality Local Foodstuff, Straight to Your Door.</h1>
+        <Button mode="cta">Subscribe Now</Button>
+        </div>
+        <img src={deliveryMan} alt="delivery man" className="absolute bottom-0 right-0" />
+      </section>
     </main>
-  );
+  )
 }
