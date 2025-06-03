@@ -39,7 +39,7 @@ export default function Button({ children, className, mode, type }) {
           ? btn.tertiary
           : btn.primary
       } 
-     rounded-md px-2 py-0.5 flex items-center justify-center gap-2 ${className}`}
+     rounded-md px-6 py-3 flex items-center justify-center w-max gap-2 ${className}`}
     >
       {children}
     </button>

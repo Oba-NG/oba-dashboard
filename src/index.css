@@ -3,6 +3,7 @@
 :root {
   --grey: #807b7b;
   --oba-green: #2d4c2e;
+  --oba-dark-green: #132B14;
   --bg-color: #fffff0;
 }
 @tailwind base;
