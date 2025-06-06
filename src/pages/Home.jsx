@@ -24,7 +24,7 @@ export default function Home() {
         <img src={deliveryMan} alt="delivery man" className="absolute bottom-0 right-0" />
       </section>
       {/* Categories section */}
-      <section>
+      <section className="w-full max-w-[1200px] mx-auto">
         <div className="flex items-center justify-between p-5">
           <h2 className="text-2xl font-medium">Categories</h2>
           <a href="#" className="text-[var(--oba-green)] underline">See All</a>
