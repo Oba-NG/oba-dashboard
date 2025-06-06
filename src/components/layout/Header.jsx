@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   const cartCount = 3;
   return (
-    <header className="font-Monts bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">
+    <header className="bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">
       <div className="px-5 py-3 flex gap-5 justify-between items-center max-w-[1200px] mx-auto">
         {/* Logo */}
         <Link to={"/"} className="flex items-center gap-2">
