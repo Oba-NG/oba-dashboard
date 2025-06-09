@@ -17,7 +17,7 @@ export default function Header() {
           <a href="/" className="hover:text-black hover:font-semibold">
             Home
           </a>
-          <a href="/" className="hover:font-semibold">
+          <a href="/market" className="hover:font-semibold">
             Market
           </a>
           <a href="/" className="hover:text-black hover:font-semibold">
