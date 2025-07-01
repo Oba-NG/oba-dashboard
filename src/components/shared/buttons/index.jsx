@@ -24,20 +24,22 @@ const btn = {
   cta: "bg-white border border-white text-[--oba-green]",
 };
 
-export default function Button({ children, className, mode, type }) {
+export default function Button({ children, className, mode, type, onClick }) {
   return (
     <button
       type={type}
-      className={`${mode === "cta"
+      onClick={onClick}
+      className={`${
+        mode === "cta"
           ? btn.cta
           : type === "disabled"
-            ? btn.disabled
-            : type === "secondary"
-              ? btn.secondary
-              : type === "tertiary"
-                ? btn.tertiary
-                : btn.primary
-        } 
+          ? btn.disabled
+          : type === "secondary"
+          ? btn.secondary
+          : type === "tertiary"
+          ? btn.tertiary
+          : btn.primary
+      } 
      rounded-md px-6 py-3 flex items-center justify-center gap-2 ${className}`}
     >
       {children}
@@ -50,8 +52,9 @@ export function FavouriteToggle({ isFavourite, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex items-center justify-center gap-2 rounded-md px-2 py-0.5 ${isFavourite ? "bg-primary" : "bg-tertiary"
-        } `}
+      className={`flex items-center justify-center gap-2 rounded-md px-2 py-0.5 ${
+        isFavourite ? "bg-primary" : "bg-tertiary"
+      } `}
     >
       <HeartIcon fill={isFavourite ? "#f00" : ""} />
     </button>

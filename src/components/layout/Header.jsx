@@ -1,9 +1,12 @@
 import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
 import logo from "@/assets/oba-logo.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AppContext } from "@/context/AppContext";
 
 export default function Header() {
-  const cartCount = 3;
+  const { cartCount } = useContext(AppContext);
+
   return (
     <header className="bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">
       <div className="px-5 py-3 flex gap-5 justify-between items-center max-w-[1200px] mx-auto">
