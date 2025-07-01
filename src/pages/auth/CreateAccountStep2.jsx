@@ -42,7 +42,7 @@ export default function CreateAccountStep2({ navigateTo }) {
             })}
             type="email"
             placeholder="Enter your email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden"
           />
           {errors.email && (
             <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -55,7 +55,7 @@ export default function CreateAccountStep2({ navigateTo }) {
             {...register("surname", { required: "Surname is required" })}
             type="text"
             placeholder="Surname"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden"
           />
           {errors.surname && (
             <p className="text-red-500 text-xs mt-1">
@@ -68,7 +68,7 @@ export default function CreateAccountStep2({ navigateTo }) {
         <div className="relative w-full mb-6 text-gray-500">
           <select
             {...register("gender", { required: "Gender is required" })}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden focus:ring-2 focus:ring-green-500 bg-white"
           >
             <option value="" disabled>
               Gender

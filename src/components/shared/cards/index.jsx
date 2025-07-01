@@ -11,7 +11,7 @@ export function ProductCard({ name, price, rating, image }) {
   const { cartCount, setCartCount } = useContext(AppContext);
 
   return (
-    <div className="bg-[#FDFDFD] border border-[#E5E5E5] hover:shadow-lg hover:border-[--oba-green] p-4 flex flex-col gap-4 rounded-2xl">
+    <div className="bg-[#FDFDFD] border border-[#E5E5E5] hover:shadow-lg hover:border-(--oba-green) p-4 flex flex-col gap-4 rounded-2xl">
       {/* product image */}
       <img
         src={image}
@@ -26,7 +26,7 @@ export function ProductCard({ name, price, rating, image }) {
         <span className="font-medium">{rating}</span>
       </div>
       {/* product price */}
-      <h3 className="text-[var(--oba-dark-green)] text-xl font-bold">
+      <h3 className="text-(--oba-dark-green) text-xl font-bold">
         ${price}
       </h3>
       <Button onClick={() => setCartCount(cartCount + 1)} className="py-3 px-4">

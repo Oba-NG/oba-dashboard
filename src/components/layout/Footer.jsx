@@ -6,7 +6,7 @@ export default function Footer() {
 			<div className="w-full bg-gray-200 p-4 text-center font-semibold">
 				<a href="#">Back to top</a>
 			</div>
-			<footer className="w-full bg-[var(--oba-dark-green)]">
+			<footer className="w-full bg-(--oba-dark-green)">
 				<div className="w-full max-w-[1200px] mx-auto grid md:grid-cols-3 gap-4 p-5 lg:py-10 text-white">
 					<div className="col-span-2 grid md:grid-cols-3 gap-4">
 						<div>

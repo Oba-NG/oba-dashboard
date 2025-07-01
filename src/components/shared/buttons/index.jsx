@@ -17,11 +17,11 @@
 import { Eye, EyeOff, HeartIcon } from "lucide-react";
 
 const btn = {
-  primary: "bg-[--oba-green] text-white border border-[--oba-green]",
-  secondary: "bg-[--bg-color] text-black border border-black",
-  tertiary: "bg-[--bg-color] text-[--oba-green] border border-[--oba-green]",
-  disabled: "bg-[--grey] text-white border border-[--grey]",
-  cta: "bg-white border border-white text-[--oba-green]",
+  primary: "bg-(--oba-green) text-white border border-(--oba-green)",
+  secondary: "bg-(--bg-color) text-black border border-black",
+  tertiary: "bg-(--bg-color) text-(--oba-green) border border-(--oba-green)",
+  disabled: "bg-(--grey) text-white border border-(--grey)",
+  cta: "bg-white border border-white text-(--oba-green)",
 };
 
 export default function Button({ children, className, mode, type, onClick }) {

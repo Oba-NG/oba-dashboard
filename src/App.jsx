@@ -15,9 +15,9 @@ export default function App() {
     <AppContext.Provider value={{ cartCount, setCartCount }}>
       <Layout>
         <Routes>
-          <Route path="/" element={<Vite />} />
+          <Route path="/" element={<Home />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/vite" element={<Home />} />
+          <Route path="/vite" element={<Vite />} />
           <Route path="/market" element={<Products />} />
         </Routes>
       </Layout>

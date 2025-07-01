@@ -33,7 +33,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search Product"
-              className="flex-grow outline-none text-sm placeholder:text-[#666666]"
+              className="grow outline-hidden text-sm placeholder:text-[#666666]"
             />
             <Search className="w-5 h-5 text-[#1C3812] ml-2" />
           </div>
