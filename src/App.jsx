@@ -1,4 +1,3 @@
-import React, { createContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Auth from "@/pages/auth";
@@ -6,13 +5,11 @@ import Home from "@/pages/Home";
 import Vite from "@/pages/Vite";
 import Layout from "@/components/layout";
 import Products from "@/pages/products";
-import { AppContext } from "@/context/AppContext";
+import { CartProvider } from "@/context/cart";
 
 export default function App() {
-  const [cartCount, setCartCount] = useState(4);
-
   return (
-    <AppContext.Provider value={{ cartCount, setCartCount }}>
+    <CartProvider>
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,6 +18,6 @@ export default function App() {
           <Route path="/market" element={<Products />} />
         </Routes>
       </Layout>
-    </AppContext.Provider>
+    </CartProvider>
   );
 }

@@ -1,11 +1,10 @@
 import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
 import logo from "@/assets/oba-logo.png";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AppContext } from "@/context/AppContext";
+import { useCart } from "@/context/cart";
 
 export default function Header() {
-  const { cartCount } = useContext(AppContext);
+  const { cartCount } = useCart();
 
   return (
     <header className="bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">

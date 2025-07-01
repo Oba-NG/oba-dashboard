@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { ShoppingCart } from "lucide-react";
 import Button from "../buttons";
-import { AppContext } from "@/context/AppContext";
+import { useCart } from "@/context/cart";
 
 /**
  * Product Card Component
  * @returns {JSX.Element}
  */
 export function ProductCard({ name, price, rating, image }) {
-  const { cartCount, setCartCount } = useContext(AppContext);
+  const { cartCount, setCartCount } = useCart();
 
   return (
     <div className="bg-[#FDFDFD] border border-[#E5E5E5] hover:shadow-lg hover:border-(--oba-green) p-4 flex flex-col gap-4 rounded-2xl">
@@ -26,9 +26,7 @@ export function ProductCard({ name, price, rating, image }) {
         <span className="font-medium">{rating}</span>
       </div>
       {/* product price */}
-      <h3 className="text-(--oba-dark-green) text-xl font-bold">
-        ${price}
-      </h3>
+      <h3 className="text-(--oba-dark-green) text-xl font-bold">${price}</h3>
       <Button onClick={() => setCartCount(cartCount + 1)} className="py-3 px-4">
         <ShoppingCart />
         Add to cart
