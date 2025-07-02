@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { EyeToggle, FavouriteToggle } from "@/components/shared/buttons";
 import { ProductCard } from "@/components/shared/cards";
+import { useProduct } from "@/context/product";
 
 export default function Vite() {
   const [isFavourite, setIsFavourite] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { products } = useProduct();
+
+  console.log("Products:", products);
 
   return (
     <main className="p-5 max-w-[1200px] mx-auto">
