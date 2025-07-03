@@ -58,7 +58,7 @@ export default function CreateAccountStep1({ navigateTo }) {
             })}
             type={passwordVisible ? "text" : "password"}
             placeholder="Password"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden"
           />
           <button
             type="button"
@@ -88,7 +88,7 @@ export default function CreateAccountStep1({ navigateTo }) {
             })}
             type={passwordVisible ? "text" : "password"}
             placeholder="Confirm Password"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden"
           />
           <button
             type="button"

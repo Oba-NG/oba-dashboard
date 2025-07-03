@@ -50,7 +50,7 @@ export default function LoginScreen({ navigateTo }) {
             {...register("password", { required: "Password is required" })}
             type={passwordVisible ? "text" : "password"}
             placeholder="Password"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm focus:outline-hidden"
           />
           <EyeToggle
             isVisible={passwordVisible}

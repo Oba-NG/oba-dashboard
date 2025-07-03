@@ -74,7 +74,7 @@ export default function EmailVerification({ navigateTo }) {
                   ref={(el) => (inputsRef.current[index] = el)}
                   onChange={(e) => handleChange(e, index)}
                   onPaste={index === 0 ? handlePaste : undefined}
-                  className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-hidden focus:ring-2 focus:ring-green-500"
                 />
               )}
             />

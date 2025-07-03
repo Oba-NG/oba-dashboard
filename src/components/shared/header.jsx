@@ -1,9 +1,11 @@
 import { Mic, Search, ShoppingCart, SlidersVertical } from "lucide-react";
 import logo from "@/assets/oba-logo.png";
 import { Link } from "react-router-dom";
+import { useCart } from "@/context/cart";
 
 export default function Header() {
-  const cartCount = 3;
+  const { cartCount } = useCart();
+
   return (
     <header className="bg-[#F9F8F6] shadow-md sticky top-0 z-50 text-sm">
       <div className="px-5 py-3 flex gap-5 justify-between items-center max-w-[1200px] mx-auto">
@@ -30,7 +32,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search Product"
-              className="flex-grow outline-none text-sm placeholder:text-[#666666]"
+              className="grow outline-hidden text-sm placeholder:text-[#666666]"
             />
             <Search className="w-5 h-5 text-[#1C3812] ml-2" />
           </div>

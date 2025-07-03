@@ -21,7 +21,7 @@ export default function Products() {
           {categories.map((category) => (
             <button
               key={`prod-${category}`}
-              className="px-5 py-2 border border-[var(--oba-green)] rounded-lg text-sm focus:bg-[var(--oba-green)] focus:text-white"
+              className="px-5 py-2 border border-(--oba-green) rounded-lg text-sm focus:bg-(--oba-green) focus:text-white"
             >
               {category}
             </button>

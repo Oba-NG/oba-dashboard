@@ -29,7 +29,7 @@ function WelcomeScreen({ navigateTo }) {
           {...register("email")}
           type="email"
           placeholder="Enter your email"
-          className="w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-green-400 text-sm"
+          className="w-full p-3 border rounded-md shadow-xs focus:outline-hidden focus:ring-2 focus:ring-green-400 text-sm"
         />
         <button
           type="submit"
