@@ -7,7 +7,7 @@ import { useCart } from "@/context/cart";
  * Product Card Component
  * @returns {JSX.Element}
  */
-export function ProductCard({ name, price, rating, image }) {
+export function ProductCard({ name, price, image }) {
   const { cartCount, setCartCount } = useCart();
 
   return (
@@ -23,7 +23,6 @@ export function ProductCard({ name, price, rating, image }) {
       {/* star rating and rating number */}
       <div className="flex gap-2">
         <div>⭐⭐⭐⭐⭐</div>
-        <span className="font-medium">{rating}</span>
       </div>
       {/* product price */}
       <h3 className="text-(--oba-dark-green) text-xl font-bold">${price}</h3>

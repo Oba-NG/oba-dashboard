@@ -1,17 +1,10 @@
 import { ProductCard } from "@/components/shared/cards";
-import { useEffect, useState } from "react";
+import { useProduct } from "@/context/product";
 import { data } from "@/assets/data";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    // We'll use the Oba API to fetch product data from our backend
-    // We'll add it to the products state variable... but for now let's use dummy data
-    setProducts(data.products);
-    setCategories(data.categories);
-  }, []);
+  const { products } = useProduct();
+  const { categories } = data;
 
   return (
     <main className="flex flex-col gap-5 p-5">
@@ -36,8 +29,7 @@ export default function Products() {
               key={product.id}
               name={product.name}
               price={product.price}
-              rating={product.rating}
-              image={product.image}
+              image={product.image_url}
             />
           ))}
         </div>
